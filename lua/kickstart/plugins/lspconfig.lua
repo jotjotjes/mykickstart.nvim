@@ -183,6 +183,13 @@ return {
             },
           },
         },
+        ltex = {
+          settings = {
+            ltex = {
+              language = 'de-DE',
+            },
+          },
+        },
       }
 
       -- Ensure the servers and tools above are installed
