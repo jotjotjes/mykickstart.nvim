@@ -218,6 +218,48 @@ return {
             server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
             require('lspconfig')[server_name].setup(server)
           end,
+
+          ['ltex'] = function()
+            require('ltex_extra').setup {
+              server_opts = {
+                on_attach = on_attach,
+                capabilities = capabilities,
+                filetypes = {
+                  'bib',
+                  'gitcommit',
+                  'markdown',
+                  'org',
+                  'plaintex',
+                  'rst',
+                  'rnoweb',
+                  'tex',
+                  'pandoc',
+                  -- "typst",
+                },
+                settings = {
+                  ltex = {
+                    language = 'de-DE',
+                    checkFrequency = 'save',
+                    completionEnabled = true,
+                    additionalRules = {
+                      enablePickyRules = true,
+                    },
+                    -- disabledRules = {
+                    --   ['en-US'] = {
+                    --     'TYPOS',
+                    --     'MORFOLOGIK_RULE_EN',
+                    --     'MORFOLOGIK_RULE_EN_US',
+                    --     'EN_QUOTES',
+                    --     'PASSIVE_VOICE',
+                    --     'REP_PASSIVE_VOICE',
+                    --     'WHITESPACE_RULE',
+                    --   },
+                    -- },
+                  },
+                },
+              },
+            }
+          end,
         },
       }
     end,
