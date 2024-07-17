@@ -18,5 +18,24 @@ return {
       vim.cmd.hi 'Comment gui=none'
     end,
   },
+  {
+    'Verf/deepwhite.nvim',
+    name = 'deepwhite',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd [[colorscheme deepwhite]]
+    end,
+  },
+  {
+    'Tsuzat/NeoSolarized.nvim',
+    name = 'NeoSolarized',
+    style = 'light',
+    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    priority = 999, -- make sure to load this before all the other start plugins
+    config = function()
+      vim.cmd [[ colorscheme NeoSolarized ]]
+    end,
+  },
 }
 -- vim: ts=2 sts=2 sw=2 et
